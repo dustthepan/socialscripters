@@ -1,2 +1,0 @@
-# scatter-photos
-stack practice 
