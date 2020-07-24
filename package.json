@@ -2,10 +2,10 @@
   "name": "scatter-photos",
   "version": "1.0.0",
   "description": "social devs",
-  "main": "server/index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node server/index.js",
-    "server": "nodemon server/index.js"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
