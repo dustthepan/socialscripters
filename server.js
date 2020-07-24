@@ -1,10 +1,25 @@
 const express = require('express');
 const connectDB = require('./config/connection');
-//const path = require('path');
+const path = require('path');
+const cors = require('cors')
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
 connectDB();
+
+
+
+app.use(cors())
+app.use(logger('dev'))
+app.use(express.urlencoded({extended:false}));
+app.use(cookieParser())
+app.use(express.static(path.join(__dirname,'public')))
+
+
+
+
 
 app.get('/',(req,res) => {
     res.send('API runnning')
