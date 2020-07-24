@@ -1,7 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/connection');
 const path = require('path');
-const cors = require('cors')
+const cors = require('cors');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 
