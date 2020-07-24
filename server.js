@@ -10,17 +10,16 @@ const app = express();
 connectDB();
 
 
-
 app.use(cors())
 app.use(logger('dev'))
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname,'public')))
 
+//import routes here
 
 
-
-
+//Postman test
 app.get('/',(req,res) => {
     res.send('API runnning')
 })
