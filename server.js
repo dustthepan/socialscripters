@@ -5,28 +5,41 @@ const cors = require('cors');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 
+
 const app = express();
 
 connectDB();
 
-// view engine 
+app.get('/',(req,res) => {
+    res.send('API runnning')
+}) 
+
+
+//import routes here
+app.use('/API/users', require('./routes/API/users'));
+app.use('/API/auth', require('./routes/API/auth'));
+app.use('/API/profile', require('./routes/API/profile'));
+app.use('/API/posts', require('./routes/API/posts'));
+
+
+//Init Middleware
+app.use(express.json({extended:false}));
 
 app.set('views', path.join(__dirname,'views'));
 app.set('view engine','ejs');
 
 app.use(cors())
 app.use(logger('dev'))
+
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname,'public')))
 
-//import routes here
 
 
-//Postman test
-/* app.get('/',(req,res) => {
-    res.send('API runnning')
-}) */
+
+
+
 
 const PORT = process.env.PORT || 5000;
 
