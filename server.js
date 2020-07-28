@@ -45,16 +45,10 @@ app.use(express.static(path.join(__dirname,'public')))
 
 
 
-<<<<<<< HEAD
 //Postman test
  app.get('/',(req,res) => {
     res.send('API runnning')
 }) 
-=======
-
-
-
->>>>>>> 7177182d1ca625c06afa74f4e604adf89233e660
 
 const PORT = process.env.PORT || 5000;
 
