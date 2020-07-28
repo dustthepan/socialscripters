@@ -28,9 +28,9 @@ app.use(express.static(path.join(__dirname,'public')))
 
 
 //Postman test
-/* app.get('/',(req,res) => {
+ app.get('/',(req,res) => {
     res.send('API runnning')
-}) */
+}) 
 
 const PORT = process.env.PORT || 5000;
 
