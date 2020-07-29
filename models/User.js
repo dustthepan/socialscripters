@@ -1,25 +1,25 @@
-const mongoose = require('moongoose');
-const { isNumber } = require('util');
+const mongoose = require('mongoose');
+
 
 const UserSchema = new mongoose.Schema({
     id:{
-        type = Number
+        type : Number
     },
     name: {
         type: String,
         required: true
     },
     email: {
-        type:String,
+        type: String,
         required: true,
         unique: true
     },
     password: {
         type: String,
-        required:true
+        required: true
     },
     avatar: {
-        type:String
+        type: String
     },
     date: {
         type: Date,
@@ -27,4 +27,4 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
-module.exports = UserSchema;
+module.exports = User = mongoose.model('user', UserSchema);
