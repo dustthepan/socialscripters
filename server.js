@@ -17,16 +17,16 @@ app.use(express.json({extended:false}));
 
  
 //view engine
-// app.set('views', path.join(__dirname,'views'));
-// app.set('view engine','ejs');
+app.set('views', path.join(__dirname,'views'));
+app.set('view engine','ejs');
 
-// app.use(cors())
-// app.use(helmet())
-// app.use(logger('dev'))
+app.use(cors())
+app.use(helmet())
+app.use(logger('dev'))
 
-// app.use(express.urlencoded({extended:false}));
-// app.use(cookieParser())
-// app.use(express.static(path.join(__dirname,'public')))
+app.use(express.urlencoded({extended:false}));
+app.use(cookieParser())
+app.use(express.static(path.join(__dirname,'public')))
 
 // //Postman test
 app.get('/',(req,res) => 
