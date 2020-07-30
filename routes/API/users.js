@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {check, validationResult} = require('express-validator');
 const gravatar = require('gravatar');
-const UserSchema = require('../../models/User');
+//const UserSchema = require('../../models/User');
 const User = require('../../models/User');
 
 
