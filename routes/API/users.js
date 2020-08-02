@@ -13,7 +13,7 @@ router.post('/',
     check('email','Please include email').isEmail(),
     check('password','Please enter a password with 6 or more characters').isLength({min:6})
     
-],
+], // edge cases 
     async (req,res) => {
 
        // console.log(req.body)
@@ -28,23 +28,44 @@ router.post('/',
     const {name,email,password} = req.body
 
     try {
-
+        // if user already exists 
         let user = await User.findOne({email});
 
         if (user) {
             res.status(400).json({errors: [{msg: 'user exists'}]})
             
         }
-    res.status('User Route')
+
+        //use gravatar package
+        const avatar = gravatar.url(email, {
+            s: '200',
+            r: 'pg',
+            d: 'mm'
+
+        })
+
+        user = new User({
+            name,
+            email,
+            avatar,
+            password
+        
+        })
+
+    res.send('User Route Pass')
     } catch(err) {
         console.log(err.message);
+        res.status(500).send('Server error')
     }
 
-    User.create({
-    name,
-    email,
-    password
-})
+    // payload
+//     User.create({
+//     name,
+//     email,
+//     password
+// })
+
+
     
 });
 
